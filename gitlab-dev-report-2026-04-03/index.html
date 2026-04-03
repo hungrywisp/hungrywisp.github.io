@@ -5,485 +5,406 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GitLab Dev Report | 27.03 - 03.04.2026</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; padding: 24px; max-width: 1200px; margin: 0 auto; }
-h1 { font-size: 1.5rem; margin-bottom: 8px; color: #1a1a2e; }
-.subtitle { color: #6c757d; margin-bottom: 24px; font-size: 0.9rem; }
-.stats-row { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
-.stat-card { background: white; border-radius: 12px; padding: 20px 24px; flex: 1; min-width: 140px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-.stat-card .number { font-size: 2rem; font-weight: 700; color: #4f46e5; }
-.stat-card .label { font-size: 0.8rem; color: #6c757d; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
-h2 { font-size: 1.2rem; margin-bottom: 16px; color: #1a1a2e; border-bottom: 2px solid #4f46e5; padding-bottom: 8px; }
-table { width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 32px; }
-th { background: #1a1a2e; color: white; padding: 12px 16px; text-align: left; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
-td { padding: 10px 16px; border-bottom: 1px solid #e9ecef; font-size: 0.9rem; }
-tr:hover { background: #f8f9fa; }
-.additions { color: #16a34a; font-weight: 600; }
-.deletions { color: #dc2626; font-weight: 600; }
-.dev-card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-.dev-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.dev-avatar { width: 48px; height: 48px; border-radius: 50%; background: #4f46e5; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; }
-.dev-name { font-size: 1.1rem; font-weight: 600; }
-.dev-username { color: #6c757d; font-size: 0.85rem; }
-.dev-accounts { color: #9ca3af; font-size: 0.75rem; margin-top: 2px; }
-.dev-stats { display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
-.dev-stat { text-align: center; }
-.dev-stat .value { font-size: 1.3rem; font-weight: 700; }
-.dev-stat .label { font-size: 0.7rem; color: #6c757d; text-transform: uppercase; }
-.dev-stat .value.additions { color: #16a34a; }
-.dev-stat .value.deletions { color: #dc2626; }
-.repo-tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.75rem; background: #eef2ff; color: #4f46e5; margin: 2px; font-weight: 500; }
-.commit-list { margin-top: 12px; padding-left: 16px; }
-.commit-list li { font-size: 0.8rem; color: #4b5563; padding: 2px 0; }
-.commit-more { font-size: 0.75rem; color: #6c757d; font-style: italic; margin-top: 4px; }
-.insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 32px; }
-.insight-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-left: 4px solid #4f46e5; }
-.insight-card .insight-title { font-size: 0.75rem; color: #6c757d; text-transform: uppercase; margin-bottom: 4px; }
-.insight-card .insight-value { font-size: 1.2rem; font-weight: 700; color: #1a1a2e; }
-.insight-card .insight-detail { font-size: 0.8rem; color: #6c757d; margin-top: 4px; }
-.note { background: #fffbeb; border: 1px solid #fbbf24; border-radius: 8px; padding: 12px 16px; margin-bottom: 24px; font-size: 0.8rem; color: #92400e; }
-.footer { text-align: center; color: #9ca3af; font-size: 0.75rem; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e9ecef; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#0d1117; color:#c9d1d9; padding:20px; max-width:1200px; margin:0 auto; }
+h1 { color:#58a6ff; font-size:1.8em; margin-bottom:4px; }
+h2 { color:#8b949e; font-size:1em; font-weight:normal; margin-bottom:24px; }
+.period { color:#8b949e; font-size:0.9em; margin-bottom:20px; }
+table { width:100%; border-collapse:collapse; margin-bottom:24px; font-size:0.85em; }
+th { background:#161b22; color:#58a6ff; padding:10px 12px; text-align:left; font-weight:600; border-bottom:1px solid #30363d; white-space:nowrap; }
+td { padding:8px 12px; border-bottom:1px solid #21262d; }
+tr:hover { background:#161b22; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+.pos { color:#3fb950; font-weight:bold; }
+.add { color:#3fb950; }
+.del { color:#f85149; }
+a { color:#58a6ff; text-decoration:none; }
+a:hover { text-decoration:underline; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:16px; margin-bottom:32px; }
+.card { background:#161b22; border:1px solid #30363d; border-radius:12px; padding:20px; position:relative; overflow:hidden; }
+.card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.card-header { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.avatar { width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:16px; color:#fff; }
+.card-name { font-weight:600; font-size:1.05em; }
+.card-handle { color:#8b949e; font-size:0.85em; }
+.stat-row { display:flex; gap:16px; margin-bottom:12px; flex-wrap:wrap; }
+.stat { flex:1; min-width:60px; }
+.stat-label { font-size:0.75em; color:#8b949e; text-transform:uppercase; letter-spacing:0.5px; }
+.stat-value { font-size:1.3em; font-weight:700; }
+.repos { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:12px; }
+.repo-tag { background:#21262d; color:#8b949e; padding:2px 8px; border-radius:10px; font-size:0.75em; }
+.commits-list { margin-top:8px; }
+.commit { font-size:0.8em; color:#8b949e; padding:2px 0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.commit-more { font-size:0.8em; color:#484f58; }
+.insights { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px; margin-bottom:32px; }
+.insight { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; }
+.insight-label { font-size:0.75em; color:#8b949e; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }
+.insight-value { font-size:1.1em; font-weight:600; color:#58a6ff; }
+.insight-sub { font-size:0.85em; color:#8b949e; }
+.summary-bar { display:flex; gap:24px; margin-bottom:24px; flex-wrap:wrap; padding:16px; background:#161b22; border:1px solid #30363d; border-radius:8px; }
+.summary-item { text-align:center; }
+.summary-num { font-size:1.6em; font-weight:700; color:#58a6ff; }
+.summary-label { font-size:0.75em; color:#8b949e; text-transform:uppercase; }
 </style>
 </head>
 <body>
 <h1>GitLab Dev Report</h1>
-<p class="subtitle">27 March - 3 April 2026 &middot; All repositories &middot; git.insapp.pro</p>
+<p class="period">27 March - 3 April 2026 | All Repositories</p>
 
-<div class="stats-row">
-  <div class="stat-card"><div class="number">143</div><div class="label">Commits</div></div>
-  <div class="stat-card"><div class="number">9</div><div class="label">Developers</div></div>
-  <div class="stat-card"><div class="number">6</div><div class="label">Repositories</div></div>
-  <div class="stat-card"><div class="number">35</div><div class="label">Merge Requests</div></div>
+<div class="summary-bar">
+  <div class="summary-item"><div class="summary-num">151</div><div class="summary-label">Commits</div></div>
+  <div class="summary-item"><div class="summary-num">+76,602</div><div class="summary-label">Lines Added</div></div>
+  <div class="summary-item"><div class="summary-num">-5,008</div><div class="summary-label">Lines Removed</div></div>
+  <div class="summary-item"><div class="summary-num">35</div><div class="summary-label">Merge Requests</div></div>
+  <div class="summary-item"><div class="summary-num">9</div><div class="summary-label">Developers</div></div>
+  <div class="summary-item"><div class="summary-num">6</div><div class="summary-label">Repositories</div></div>
 </div>
 
-<h2>Summary by Developer</h2>
+<h2 style="color:#58a6ff;font-size:1.2em;margin-bottom:12px;">Summary by Developer</h2>
 <table>
+<thead>
 <tr>
-  <th>#</th><th>Developer</th><th>Commits</th><th>Additions</th><th>Deletions</th><th>MRs</th><th>Repositories</th>
+<th>#</th><th>Developer</th><th class="num">Commits</th><th class="num">Additions</th><th class="num">Deletions</th><th class="num">MRs</th><th>Repositories</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="pos">1</td>
+<td>Sergey Klimov <span style="color:#8b949e">@KlimovS</span></td>
+<td class="num">62</td>
+<td class="num add">+47,815</td>
+<td class="num del">-2,640</td>
+<td class="num">4/3m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp, cloud-agents, html-report-service, selenium-tests, tracker-mcp</td>
 </tr>
 <tr>
-  <td>1</td>
-  <td><strong>Sergey Klimov</strong> @KlimovS</td>
-  <td>62</td>
-  <td class="additions">+47,815</td>
-  <td class="deletions">&minus;2,640</td>
-  <td>4 / 3 merged</td>
-  <td><span class="repo-tag">Insapp</span> <span class="repo-tag">cloud-agents</span> <span class="repo-tag">html-report-service</span> <span class="repo-tag">selenium-tests</span> <span class="repo-tag">tracker-mcp</span></td>
+<td class="pos">2</td>
+<td>Alex Svistunov <span style="color:#8b949e">@svistunov</span></td>
+<td class="num">18</td>
+<td class="num add">+21,448</td>
+<td class="num del">-75</td>
+<td class="num">11/10m</td>
+<td style="font-size:0.85em;color:#8b949e">Claude Skills, Insapp</td>
 </tr>
 <tr>
-  <td>2</td>
-  <td><strong>Alex Svistunov</strong> @svistunov</td>
-  <td>17</td>
-  <td class="additions">+21,873</td>
-  <td class="deletions">&minus;497</td>
-  <td>11 / 10 merged</td>
-  <td><span class="repo-tag">Claude Skills</span> <span class="repo-tag">Insapp</span></td>
+<td class="pos">3</td>
+<td>Geo M <span style="color:#8b949e">@GeoM</span></td>
+<td class="num">12</td>
+<td class="num add">+3,613</td>
+<td class="num del">-626</td>
+<td class="num">-</td>
+<td style="font-size:0.85em;color:#8b949e">Claude Skills</td>
 </tr>
 <tr>
-  <td>3</td>
-  <td><strong>Geo M</strong> @GeoM</td>
-  <td>12</td>
-  <td class="additions">+3,613</td>
-  <td class="deletions">&minus;626</td>
-  <td>&mdash;</td>
-  <td><span class="repo-tag">Claude Skills</span></td>
+<td class="pos">4</td>
+<td>Dimasik <span style="color:#8b949e">@hlopov</span></td>
+<td class="num">13</td>
+<td class="num add">+1,753</td>
+<td class="num del">-600</td>
+<td class="num">1/0m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp</td>
 </tr>
 <tr>
-  <td>4</td>
-  <td><strong>Khlopov</strong> @hlopov</td>
-  <td>13</td>
-  <td class="additions">+1,753</td>
-  <td class="deletions">&minus;600</td>
-  <td>1 / 0 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
+<td class="pos">5</td>
+<td>Ilya Kotov <span style="color:#8b949e">@IlyaKotov</span></td>
+<td class="num">18</td>
+<td class="num add">+1,469</td>
+<td class="num del">-907</td>
+<td class="num">2/0m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp</td>
 </tr>
 <tr>
-  <td>5</td>
-  <td><strong>Ilya Kotov</strong> @IlyaKotov</td>
-  <td>20</td>
-  <td class="additions">+1,742</td>
-  <td class="deletions">&minus;950</td>
-  <td>2 / 0 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
+<td class="pos">6</td>
+<td>Pavel Tkachenko <span style="color:#8b949e">@PavelTkachenk0</span></td>
+<td class="num">10</td>
+<td class="num add">+318</td>
+<td class="num del">-88</td>
+<td class="num">11/10m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp</td>
 </tr>
 <tr>
-  <td>6</td>
-  <td><strong>Pavel Tkachenko</strong> @PavelTkachenk0</td>
-  <td>9</td>
-  <td class="additions">+252</td>
-  <td class="deletions">&minus;66</td>
-  <td>11 / 10 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
+<td class="pos">7</td>
+<td>Lev Seriy <span style="color:#8b949e">@GrayLion</span></td>
+<td class="num">11</td>
+<td class="num add">+135</td>
+<td class="num del">-67</td>
+<td class="num">4/2m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp</td>
 </tr>
 <tr>
-  <td>7</td>
-  <td><strong>Dmitriy Listopad</strong> @Listopad</td>
-  <td>6</td>
-  <td class="additions">+30</td>
-  <td class="deletions">&minus;4</td>
-  <td>2 / 2 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
+<td class="pos">8</td>
+<td>Dmitriy Listopad <span style="color:#8b949e">@Listopad</span></td>
+<td class="num">6</td>
+<td class="num add">+30</td>
+<td class="num del">-4</td>
+<td class="num">2/2m</td>
+<td style="font-size:0.85em;color:#8b949e">Insapp</td>
 </tr>
 <tr>
-  <td>8</td>
-  <td><strong>keshigo</strong> @GrayLion</td>
-  <td>3</td>
-  <td class="additions">+29</td>
-  <td class="deletions">&minus;22</td>
-  <td>4 / 2 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
+<td class="pos">9</td>
+<td>Kapitan21o <span style="color:#8b949e">@Kapitan21o</span></td>
+<td class="num">1</td>
+<td class="num add">+21</td>
+<td class="num del">-1</td>
+<td class="num">-</td>
+<td style="font-size:0.85em;color:#8b949e">Claude Skills</td>
 </tr>
-<tr>
-  <td>9</td>
-  <td><strong>Kapitan21o</strong> @Kapitan21o</td>
-  <td>1</td>
-  <td class="additions">+21</td>
-  <td class="deletions">&minus;1</td>
-  <td>&mdash;</td>
-  <td><span class="repo-tag">Claude Skills</span></td>
-</tr>
+
+</tbody>
 </table>
 
-<div class="note">
-  Merge commits excluded. Developer accounts unified by email. Includes feature branch commits from open MRs.
-</div>
-
-<h2>Developer Cards</h2>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">S</div>
-    <div>
-      <div class="dev-name">Sergey Klimov</div>
-      <div class="dev-username">@KlimovS</div>
-      <div class="dev-accounts">Sergey Klimov</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+47,815</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;2,640</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">4</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">3</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">100%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span> <span class="repo-tag">cloud-agents</span> <span class="repo-tag">html-report-service</span> <span class="repo-tag">selenium-tests</span> <span class="repo-tag">tracker-mcp</span></div>
-  <ul class="commit-list"><li>remove: dev report HTML from repo</li><li>add: GitLab dev productivity report 27.03-03.04.2026</li><li>build fix</li><li>fix: добавлена поддержка алиасов API-ключей в GetApiKeyByPrivateKey</li><li>Add auto tests</li><li class="commit-more">+ 57 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">A</div>
-    <div>
-      <div class="dev-name">Alex Svistunov</div>
-      <div class="dev-username">@svistunov</div>
-      <div class="dev-accounts">Alex Svistunov</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+21,873</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;497</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">11</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">10</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">100%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Claude Skills</span> <span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>fix: delete ApplicationDocument via DbContext.Remove, not collection.Remove</li><li>fix sales funnel crash when intermediate step has no data</li><li>fin/ fix: allow CreditRejected to CreditIssued transition</li><li>fin/ feat: add Internal API for referral products management</li><li>fin/ fix: comment out non-referral steps in GetFinSalesFunnel</li><li class="commit-more">+ 12 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">G</div>
-    <div>
-      <div class="dev-name">Geo M</div>
-      <div class="dev-username">@GeoM</div>
-      <div class="dev-accounts">Geo M</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+3,613</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;626</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">&mdash;</div>
-          <div class="label">MRs</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Claude Skills</span></div>
-  <ul class="commit-list"><li>feat: multi-select partners</li><li>fix: auto-reset stale MCP session</li><li>fix: increase retries to 3</li><li>fix: increase MCP query timeout</li><li>feat: default sort by Issued</li><li class="commit-more">+ 7 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">K</div>
-    <div>
-      <div class="dev-name">Khlopov</div>
-      <div class="dev-username">@hlopov</div>
-      <div class="dev-accounts">Khlopov, Dimasik</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+1,753</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;600</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">1</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">0</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">0%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>INS-2915 add Upsales to OfferDataService.GetApplicationForPaymentStatusCheck</li><li>Revert "INS-2915 mortgage payment status jobs - add MortgageLoan for app"</li><li>INS-2915 mortgage payment status jobs - add MortgageLoan for app</li><li>INS-2915 osago payment status jobs - add Upsales for Gelios integration</li><li>INS-3128 kasko state machine allow transition from PaymentLinkReceived  to WorkInCallCenter</li><li class="commit-more">+ 8 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">I</div>
-    <div>
-      <div class="dev-name">Ilya Kotov</div>
-      <div class="dev-username">@IlyaKotov</div>
-      <div class="dev-accounts">Ilya Kotov</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+1,742</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;950</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">2</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">0</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">0%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>INS-3150 add plans for ab bot</li><li>Fix ingos auth, add logging to auth</li><li>Move test emails to background services</li><li>code style</li><li>fixes</li><li class="commit-more">+ 15 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">P</div>
-    <div>
-      <div class="dev-name">Pavel Tkachenko</div>
-      <div class="dev-username">@PavelTkachenk0</div>
-      <div class="dev-accounts">Pavel Tkachenko</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+252</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;66</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">11</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">10</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">100%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>fix: increase DefaultHandlerTimeoutMinutes from 15 to 25</li><li>fix: resolve scoped service via IServiceScopeFactory in VskMortgageCacheService</li><li>fix: handle null UpsaleDraft in OsagoDraftHandler</li><li>fix: resolve scoped services via IServiceScopeFactory in singleton AuthCacheServices</li><li>feat: trigger payment status check after payment link received</li><li class="commit-more">+ 4 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">D</div>
-    <div>
-      <div class="dev-name">Dmitriy Listopad</div>
-      <div class="dev-username">@Listopad</div>
-      <div class="dev-accounts">Dmitriy Listopad</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+30</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;4</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">2</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">2</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">100%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>fix include for paymentStatusCheck</li><li>fix gelios</li><li>fix include</li><li>fix RenessansMortgageIntegration.cs null ref</li><li>fix include for paymentStatusCheck</li><li class="commit-more">+ 1 more commits</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">K</div>
-    <div>
-      <div class="dev-name">keshigo</div>
-      <div class="dev-username">@GrayLion</div>
-      <div class="dev-accounts">keshigo, Lev Seriy</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+29</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;22</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">4</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">2</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">66%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>soglasieEndpoints</li><li>INS-3099</li><li>fix: KBM data inside KbmDataJson</li></ul>
-</div>
-
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">K</div>
-    <div>
-      <div class="dev-name">Kapitan21o</div>
-      <div class="dev-username">@Kapitan21o</div>
-      <div class="dev-accounts">Kapitan21o</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+21</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;1</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">&mdash;</div>
-          <div class="label">MRs</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Claude Skills</span></div>
-  <ul class="commit-list"><li>Added 10 MFO partners</li></ul>
-</div>
-
-<h2>Insights</h2>
-<div class="insights-grid">
-  <div class="insight-card">
-    <div class="insight-title">Most Active Developer</div>
-    <div class="insight-value">Sergey Klimov</div>
-    <div class="insight-detail">62 commits across 5 repos</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-title">Most Lines Added</div>
-    <div class="insight-value">Sergey Klimov</div>
-    <div class="insight-detail">+47,815 lines in Insapp, cloud-agents, html-report-service</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-title">Most MRs Created</div>
-    <div class="insight-value">Alex Svistunov</div>
-    <div class="insight-detail">11 MRs, 10 merged (90%)</div>
-  </div>
-  <div class="insight-card">
-    <div class="insight-title">Multi-Repo Developer</div>
-    <div class="insight-value">Sergey Klimov</div>
-    <div class="insight-detail">5 repositories: Insapp, cloud-agents, html-report-service, selenium-tests, tracker-mcp</div>
+<h2 style="color:#58a6ff;font-size:1.2em;margin-bottom:12px;">Developer Cards</h2>
+<div class="cards">
+<div class="card" style="border-color:#4FC3F740">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#4FC3F7"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#4FC3F7">SE</div>
+  <div>
+    <div class="card-name">Sergey Klimov</div>
+    <div class="card-handle">@KlimovS</div>
   </div>
 </div>
-
-<div class="footer">
-  Generated on 3 April 2026 &middot; Merge commits excluded &middot; 143 real commits from 9 developers across 6 repositories
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+47,815</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-2,640</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">100%</div></div>
 </div>
+<div class="repos"><span class="repo-tag">Insapp</span><span class="repo-tag">cloud-agents</span><span class="repo-tag">html-report-service</span><span class="repo-tag">selenium-tests</span><span class="repo-tag">tracker-mcp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">4<span style="color:#8b949e"> created</span><br>3<span style="color:#8b949e"> merged</span> | 62 commits</div>
+<div class="commits-list"><div class="commit">remove: dev report HTML from repo</div>
+<div class="commit">add: GitLab dev productivity report 27.03-03.04.2026</div>
+<div class="commit">build fix</div>
+<div class="commit">fix: добавлена поддержка алиасов API-ключей в GetApiKeyByPrivateKey</div>
+<div class="commit">Add auto tests</div>
+<div class="commit-more">+ 57 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#81C78440">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#81C784"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#81C784">AL</div>
+  <div>
+    <div class="card-name">Alex Svistunov</div>
+    <div class="card-handle">@svistunov</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+21,448</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-75</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">100%</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Claude Skills</span><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">11<span style="color:#8b949e"> created</span><br>10<span style="color:#8b949e"> merged</span> | 18 commits</div>
+<div class="commits-list"><div class="commit">fix: delete ApplicationDocument via DbContext.Remove, not collection.R</div>
+<div class="commit">fix sales funnel crash when intermediate step has no data</div>
+<div class="commit">fin/ fix: allow CreditRejected to CreditIssued transition</div>
+<div class="commit">fin/ feat: add Internal API for referral products management</div>
+<div class="commit">fin/ fix: comment out non-referral steps in GetFinSalesFunnel</div>
+<div class="commit-more">+ 13 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#FFB74D40">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FFB74D"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#FFB74D">GE</div>
+  <div>
+    <div class="card-name">Geo M</div>
+    <div class="card-handle">@GeoM</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+3,613</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-626</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">n/a</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Claude Skills</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">0<span style="color:#8b949e"> created</span><br>0<span style="color:#8b949e"> merged</span> | 12 commits</div>
+<div class="commits-list"><div class="commit">feat: multi-select partners</div>
+<div class="commit">fix: auto-reset stale MCP session</div>
+<div class="commit">fix: increase retries to 3</div>
+<div class="commit">fix: increase MCP query timeout</div>
+<div class="commit">feat: default sort by Issued</div>
+<div class="commit-more">+ 7 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#E5737340">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#E57373"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#E57373">DI</div>
+  <div>
+    <div class="card-name">Dimasik</div>
+    <div class="card-handle">@hlopov</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+1,753</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-600</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">n/a</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">1<span style="color:#8b949e"> created</span><br>0<span style="color:#8b949e"> merged</span> | 13 commits</div>
+<div class="commits-list"><div class="commit">INS-2915 add Upsales to OfferDataService.GetApplicationForPaymentStatu</div>
+<div class="commit">Revert "INS-2915 mortgage payment status jobs - add MortgageLoan for a</div>
+<div class="commit">INS-2915 mortgage payment status jobs - add MortgageLoan for app</div>
+<div class="commit">INS-2915 osago payment status jobs - add Upsales for Gelios integratio</div>
+<div class="commit">INS-3128 kasko state machine allow transition from PaymentLinkReceived</div>
+<div class="commit-more">+ 8 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#BA68C840">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#BA68C8"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#BA68C8">IL</div>
+  <div>
+    <div class="card-name">Ilya Kotov</div>
+    <div class="card-handle">@IlyaKotov</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+1,469</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-907</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">n/a</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">2<span style="color:#8b949e"> created</span><br>0<span style="color:#8b949e"> merged</span> | 18 commits</div>
+<div class="commits-list"><div class="commit">INS-3150 add plans for ab bot</div>
+<div class="commit">Fix ingos auth, add logging to auth</div>
+<div class="commit">Move test emails to background services</div>
+<div class="commit">code style</div>
+<div class="commit">INS-2368 fix pari error when modif is null</div>
+<div class="commit-more">+ 13 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#4DD0E140">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#4DD0E1"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#4DD0E1">PA</div>
+  <div>
+    <div class="card-name">Pavel Tkachenko</div>
+    <div class="card-handle">@PavelTkachenk0</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+318</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-88</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">100%</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">11<span style="color:#8b949e"> created</span><br>10<span style="color:#8b949e"> merged</span> | 10 commits</div>
+<div class="commits-list"><div class="commit">fix: increase DefaultHandlerTimeoutMinutes from 15 to 25</div>
+<div class="commit">fix: resolve scoped service via IServiceScopeFactory in VskMortgageCac</div>
+<div class="commit">fix: handle null UpsaleDraft in OsagoDraftHandler</div>
+<div class="commit">fix: resolve scoped services via IServiceScopeFactory</div>
+<div class="commit">feat: trigger payment status check after payment link received</div>
+<div class="commit-more">+ 5 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#FFD54F40">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#FFD54F"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#FFD54F">LE</div>
+  <div>
+    <div class="card-name">Lev Seriy</div>
+    <div class="card-handle">@GrayLion</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+135</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-67</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">67%</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">4<span style="color:#8b949e"> created</span><br>2<span style="color:#8b949e"> merged</span> | 11 commits</div>
+<div class="commits-list"><div class="commit">soglasieEndpoints</div>
+<div class="commit">INS-3099</div>
+<div class="commit">эндпоинты</div>
+<div class="commit">add soglasiekross in _defaultEnabledUpsales</div>
+<div class="commit">получил ссылку на оплату</div>
+<div class="commit-more">+ 6 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#A1887F40">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#A1887F"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#A1887F">DM</div>
+  <div>
+    <div class="card-name">Dmitriy Listopad</div>
+    <div class="card-handle">@Listopad</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+30</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-4</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">100%</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Insapp</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">2<span style="color:#8b949e"> created</span><br>2<span style="color:#8b949e"> merged</span> | 6 commits</div>
+<div class="commits-list"><div class="commit">fix include for paymentStatusCheck</div>
+<div class="commit">fix gelios</div>
+<div class="commit">fix include</div>
+<div class="commit">fix RenessansMortgageIntegration.cs null ref</div>
+<div class="commit">fix include for paymentStatusCheck</div>
+<div class="commit-more">+ 1 more commits</div>
+</div>
+</div>
+<div class="card" style="border-color:#90A4AE40">
+<div style="position:absolute;top:0;left:0;right:0;height:3px;background:#90A4AE"></div>
+<div class="card-header">
+  <div class="avatar" style="background:#90A4AE">KA</div>
+  <div>
+    <div class="card-name">Kapitan21o</div>
+    <div class="card-handle">@Kapitan21o</div>
+  </div>
+</div>
+<div class="stat-row">
+  <div class="stat"><div class="stat-label">Additions</div><div class="stat-value" style="color:#3fb950">+21</div></div>
+  <div class="stat"><div class="stat-label">Deletions</div><div class="stat-value" style="color:#f85149">-1</div></div>
+  <div class="stat"><div class="stat-label">Acceptance</div><div class="stat-value">n/a</div></div>
+</div>
+<div class="repos"><span class="repo-tag">Claude Skills</span></div>
+<div style="font-size:0.75em;color:#8b949e;margin-bottom:8px">0<span style="color:#8b949e"> created</span><br>0<span style="color:#8b949e"> merged</span> | 1 commits</div>
+<div class="commits-list"><div class="commit">Added 10 MFO partners</div>
+</div>
+</div>
+
+</div>
+
+<h2 style="color:#58a6ff;font-size:1.2em;margin-bottom:12px;">Insights</h2>
+<div class="insights">
+<div class="insight">
+<div class="insight-label">Most Active Developer</div>
+<div class="insight-value">Sergey Klimov</div>
+<div class="insight-sub">62 commits across 5 repos</div>
+</div>
+<div class="insight">
+<div class="insight-label">Most Lines Added</div>
+<div class="insight-value">Sergey Klimov</div>
+<div class="insight-sub">+47,815 lines in Insapp, cloud-agents, html-report-service</div>
+</div>
+<div class="insight">
+<div class="insight-label">Most MRs Created</div>
+<div class="insight-value">Alex Svistunov</div>
+<div class="insight-sub">11 MRs, 10/11 merged</div>
+</div>
+<div class="insight">
+<div class="insight-label">Multi-Account Dev</div>
+<div class="insight-value">Dimasik (Dimasik, Khlopov)</div>
+<div class="insight-sub">Commits under multiple git identities</div>
+</div>
+
+<div class="insight">
+<div class="insight-label">Total MRs in Period</div>
+<div class="insight-value">35 MRs</div>
+<div class="insight-sub">27 merged, 7 open, 1 closed</div>
+</div>
+</div>
+
+<p style="color:#484f58;font-size:0.8em;margin-top:32px;border-top:1px solid #21262d;padding-top:16px;">
+Data collected from git.insapp.pro + gitlab.com/insappmappings<br>
+Merge commits (2+ parents) excluded. SHA deduplication across branches.<br>
+Feature branches (INS-2449, INS-3033, INS-3016, INS-1548, fix/flaky-test, fix/fin-sales-funnel, feature/benchmarkdotnet) included.<br>
+Generated automatically via Claude Code.
+</p>
+
 </body>
 </html>
