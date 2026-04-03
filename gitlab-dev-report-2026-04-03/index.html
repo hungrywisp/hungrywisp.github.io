@@ -32,10 +32,6 @@ tr:hover { background: #f8f9fa; }
 .dev-stat .label { font-size: 0.7rem; color: #6c757d; text-transform: uppercase; }
 .dev-stat .value.additions { color: #16a34a; }
 .dev-stat .value.deletions { color: #dc2626; }
-.mr-badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
-.mr-merged { background: #dcfce7; color: #16a34a; }
-.mr-opened { background: #dbeafe; color: #2563eb; }
-.mr-closed { background: #fee2e2; color: #dc2626; }
 .repo-tag { display: inline-block; padding: 3px 10px; border-radius: 6px; font-size: 0.75rem; background: #eef2ff; color: #4f46e5; margin: 2px; font-weight: 500; }
 .commit-list { margin-top: 12px; padding-left: 16px; }
 .commit-list li { font-size: 0.8rem; color: #4b5563; padding: 2px 0; }
@@ -54,7 +50,7 @@ tr:hover { background: #f8f9fa; }
 <p class="subtitle">27 March - 3 April 2026 &middot; All repositories &middot; git.insapp.pro</p>
 
 <div class="stats-row">
-  <div class="stat-card"><div class="number">122</div><div class="label">Commits</div></div>
+  <div class="stat-card"><div class="number">143</div><div class="label">Commits</div></div>
   <div class="stat-card"><div class="number">9</div><div class="label">Developers</div></div>
   <div class="stat-card"><div class="number">6</div><div class="label">Repositories</div></div>
   <div class="stat-card"><div class="number">35</div><div class="label">Merge Requests</div></div>
@@ -68,18 +64,18 @@ tr:hover { background: #f8f9fa; }
 <tr>
   <td>1</td>
   <td><strong>Sergey Klimov</strong> @KlimovS</td>
-  <td>61</td>
-  <td class="additions">+47,812</td>
-  <td class="deletions">&minus;2,636</td>
+  <td>62</td>
+  <td class="additions">+47,815</td>
+  <td class="deletions">&minus;2,640</td>
   <td>4 / 3 merged</td>
   <td><span class="repo-tag">Insapp</span> <span class="repo-tag">cloud-agents</span> <span class="repo-tag">html-report-service</span> <span class="repo-tag">selenium-tests</span> <span class="repo-tag">tracker-mcp</span></td>
 </tr>
 <tr>
   <td>2</td>
   <td><strong>Alex Svistunov</strong> @svistunov</td>
-  <td>16</td>
-  <td class="additions">+21,441</td>
-  <td class="deletions">&minus;69</td>
+  <td>17</td>
+  <td class="additions">+21,873</td>
+  <td class="deletions">&minus;497</td>
   <td>11 / 10 merged</td>
   <td><span class="repo-tag">Claude Skills</span> <span class="repo-tag">Insapp</span></td>
 </tr>
@@ -94,9 +90,9 @@ tr:hover { background: #f8f9fa; }
 </tr>
 <tr>
   <td>4</td>
-  <td><strong>Dimasik</strong> @hlopov</td>
-  <td>12</td>
-  <td class="additions">+1,060</td>
+  <td><strong>Khlopov</strong> @hlopov</td>
+  <td>13</td>
+  <td class="additions">+1,753</td>
   <td class="deletions">&minus;600</td>
   <td>1 / 0 merged</td>
   <td><span class="repo-tag">Insapp</span></td>
@@ -104,18 +100,18 @@ tr:hover { background: #f8f9fa; }
 <tr>
   <td>5</td>
   <td><strong>Ilya Kotov</strong> @IlyaKotov</td>
-  <td>4</td>
-  <td class="additions">+278</td>
-  <td class="deletions">&minus;45</td>
+  <td>20</td>
+  <td class="additions">+1,742</td>
+  <td class="deletions">&minus;950</td>
   <td>2 / 0 merged</td>
   <td><span class="repo-tag">Insapp</span></td>
 </tr>
 <tr>
   <td>6</td>
   <td><strong>Pavel Tkachenko</strong> @PavelTkachenk0</td>
-  <td>8</td>
-  <td class="additions">+250</td>
-  <td class="deletions">&minus;44</td>
+  <td>9</td>
+  <td class="additions">+252</td>
+  <td class="deletions">&minus;66</td>
   <td>11 / 10 merged</td>
   <td><span class="repo-tag">Insapp</span></td>
 </tr>
@@ -130,6 +126,15 @@ tr:hover { background: #f8f9fa; }
 </tr>
 <tr>
   <td>8</td>
+  <td><strong>keshigo</strong> @GrayLion</td>
+  <td>3</td>
+  <td class="additions">+29</td>
+  <td class="deletions">&minus;22</td>
+  <td>4 / 2 merged</td>
+  <td><span class="repo-tag">Insapp</span></td>
+</tr>
+<tr>
+  <td>9</td>
   <td><strong>Kapitan21o</strong> @Kapitan21o</td>
   <td>1</td>
   <td class="additions">+21</td>
@@ -137,19 +142,10 @@ tr:hover { background: #f8f9fa; }
   <td>&mdash;</td>
   <td><span class="repo-tag">Claude Skills</span></td>
 </tr>
-<tr>
-  <td>9</td>
-  <td><strong>Lev Seriy</strong> @GrayLion</td>
-  <td>2</td>
-  <td class="additions">+14</td>
-  <td class="deletions">&minus;18</td>
-  <td>4 / 2 merged</td>
-  <td><span class="repo-tag">Insapp</span></td>
-</tr>
 </table>
 
 <div class="note">
-  Merge commits excluded from statistics. Developer accounts unified by email.
+  Merge commits excluded. Developer accounts unified by email. Includes feature branch commits from open MRs.
 </div>
 
 <h2>Developer Cards</h2>
@@ -165,11 +161,11 @@ tr:hover { background: #f8f9fa; }
   </div>
   <div class="dev-stats">
     <div class="dev-stat">
-      <div class="value additions">+47,812</div>
+      <div class="value additions">+47,815</div>
       <div class="label">Additions</div>
     </div>
     <div class="dev-stat">
-      <div class="value deletions">&minus;2,636</div>
+      <div class="value deletions">&minus;2,640</div>
       <div class="label">Deletions</div>
     </div>
     
@@ -187,7 +183,7 @@ tr:hover { background: #f8f9fa; }
         </div>
   </div>
   <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span> <span class="repo-tag">cloud-agents</span> <span class="repo-tag">html-report-service</span> <span class="repo-tag">selenium-tests</span> <span class="repo-tag">tracker-mcp</span></div>
-  <ul class="commit-list"><li>remove: dev report HTML from repo</li><li>add: GitLab dev productivity report 27.03-03.04.2026</li><li>build fix</li><li>fix: добавлена поддержка алиасов API-ключей в GetApiKeyByPrivateKey</li><li>Add auto tests</li><li class="commit-more">+ 56 more commits</li></ul>
+  <ul class="commit-list"><li>remove: dev report HTML from repo</li><li>add: GitLab dev productivity report 27.03-03.04.2026</li><li>build fix</li><li>fix: добавлена поддержка алиасов API-ключей в GetApiKeyByPrivateKey</li><li>Add auto tests</li><li class="commit-more">+ 57 more commits</li></ul>
 </div>
 
 <div class="dev-card">
@@ -201,11 +197,11 @@ tr:hover { background: #f8f9fa; }
   </div>
   <div class="dev-stats">
     <div class="dev-stat">
-      <div class="value additions">+21,441</div>
+      <div class="value additions">+21,873</div>
       <div class="label">Additions</div>
     </div>
     <div class="dev-stat">
-      <div class="value deletions">&minus;69</div>
+      <div class="value deletions">&minus;497</div>
       <div class="label">Deletions</div>
     </div>
     
@@ -223,7 +219,7 @@ tr:hover { background: #f8f9fa; }
         </div>
   </div>
   <div style="margin-bottom:8px"><span class="repo-tag">Claude Skills</span> <span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>fix: delete ApplicationDocument via DbContext.Remove, not collection.Remove</li><li>fix sales funnel crash when intermediate step has no data</li><li>fin/ fix: allow CreditRejected to CreditIssued transition</li><li>fin/ feat: add Internal API for referral products management</li><li>fin/ fix: comment out non-referral steps in GetFinSalesFunnel</li><li class="commit-more">+ 11 more commits</li></ul>
+  <ul class="commit-list"><li>fix: delete ApplicationDocument via DbContext.Remove, not collection.Remove</li><li>fix sales funnel crash when intermediate step has no data</li><li>fin/ fix: allow CreditRejected to CreditIssued transition</li><li>fin/ feat: add Internal API for referral products management</li><li>fin/ fix: comment out non-referral steps in GetFinSalesFunnel</li><li class="commit-more">+ 12 more commits</li></ul>
 </div>
 
 <div class="dev-card">
@@ -256,16 +252,16 @@ tr:hover { background: #f8f9fa; }
 
 <div class="dev-card">
   <div class="dev-header">
-    <div class="dev-avatar">D</div>
+    <div class="dev-avatar">K</div>
     <div>
-      <div class="dev-name">Dimasik</div>
+      <div class="dev-name">Khlopov</div>
       <div class="dev-username">@hlopov</div>
-      <div class="dev-accounts">Dimasik, Khlopov</div>
+      <div class="dev-accounts">Khlopov, Dimasik</div>
     </div>
   </div>
   <div class="dev-stats">
     <div class="dev-stat">
-      <div class="value additions">+1,060</div>
+      <div class="value additions">+1,753</div>
       <div class="label">Additions</div>
     </div>
     <div class="dev-stat">
@@ -287,7 +283,7 @@ tr:hover { background: #f8f9fa; }
         </div>
   </div>
   <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>INS-2915 add Upsales to OfferDataService.GetApplicationForPaymentStatusCheck</li><li>Revert "INS-2915 mortgage payment status jobs - add MortgageLoan for app"</li><li>INS-2915 mortgage payment status jobs - add MortgageLoan for app</li><li>INS-2915 osago payment status jobs - add Upsales for Gelios integration</li><li>INS-3128 kasko state machine allow transition from PaymentLinkReceived  to WorkInCallCenter</li><li class="commit-more">+ 7 more commits</li></ul>
+  <ul class="commit-list"><li>INS-2915 add Upsales to OfferDataService.GetApplicationForPaymentStatusCheck</li><li>Revert "INS-2915 mortgage payment status jobs - add MortgageLoan for app"</li><li>INS-2915 mortgage payment status jobs - add MortgageLoan for app</li><li>INS-2915 osago payment status jobs - add Upsales for Gelios integration</li><li>INS-3128 kasko state machine allow transition from PaymentLinkReceived  to WorkInCallCenter</li><li class="commit-more">+ 8 more commits</li></ul>
 </div>
 
 <div class="dev-card">
@@ -301,11 +297,11 @@ tr:hover { background: #f8f9fa; }
   </div>
   <div class="dev-stats">
     <div class="dev-stat">
-      <div class="value additions">+278</div>
+      <div class="value additions">+1,742</div>
       <div class="label">Additions</div>
     </div>
     <div class="dev-stat">
-      <div class="value deletions">&minus;45</div>
+      <div class="value deletions">&minus;950</div>
       <div class="label">Deletions</div>
     </div>
     
@@ -323,7 +319,7 @@ tr:hover { background: #f8f9fa; }
         </div>
   </div>
   <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>INS-3150 add plans for ab bot</li><li>Fix ingos auth, add logging to auth</li><li>Move test emails to background services</li><li>code style</li></ul>
+  <ul class="commit-list"><li>INS-3150 add plans for ab bot</li><li>Fix ingos auth, add logging to auth</li><li>Move test emails to background services</li><li>code style</li><li>fixes</li><li class="commit-more">+ 15 more commits</li></ul>
 </div>
 
 <div class="dev-card">
@@ -337,11 +333,11 @@ tr:hover { background: #f8f9fa; }
   </div>
   <div class="dev-stats">
     <div class="dev-stat">
-      <div class="value additions">+250</div>
+      <div class="value additions">+252</div>
       <div class="label">Additions</div>
     </div>
     <div class="dev-stat">
-      <div class="value deletions">&minus;44</div>
+      <div class="value deletions">&minus;66</div>
       <div class="label">Deletions</div>
     </div>
     
@@ -359,7 +355,7 @@ tr:hover { background: #f8f9fa; }
         </div>
   </div>
   <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>fix: increase DefaultHandlerTimeoutMinutes from 15 to 25</li><li>fix: resolve scoped service via IServiceScopeFactory in VskMortgageCacheService</li><li>fix: handle null UpsaleDraft in OsagoDraftHandler</li><li>fix: resolve scoped services via IServiceScopeFactory in singleton AuthCacheServices</li><li>feat: trigger payment status check after payment link received</li><li class="commit-more">+ 3 more commits</li></ul>
+  <ul class="commit-list"><li>fix: increase DefaultHandlerTimeoutMinutes from 15 to 25</li><li>fix: resolve scoped service via IServiceScopeFactory in VskMortgageCacheService</li><li>fix: handle null UpsaleDraft in OsagoDraftHandler</li><li>fix: resolve scoped services via IServiceScopeFactory in singleton AuthCacheServices</li><li>feat: trigger payment status check after payment link received</li><li class="commit-more">+ 4 more commits</li></ul>
 </div>
 
 <div class="dev-card">
@@ -402,6 +398,42 @@ tr:hover { background: #f8f9fa; }
   <div class="dev-header">
     <div class="dev-avatar">K</div>
     <div>
+      <div class="dev-name">keshigo</div>
+      <div class="dev-username">@GrayLion</div>
+      <div class="dev-accounts">keshigo, Lev Seriy</div>
+    </div>
+  </div>
+  <div class="dev-stats">
+    <div class="dev-stat">
+      <div class="value additions">+29</div>
+      <div class="label">Additions</div>
+    </div>
+    <div class="dev-stat">
+      <div class="value deletions">&minus;22</div>
+      <div class="label">Deletions</div>
+    </div>
+    
+        <div class="dev-stat">
+          <div class="value">4</div>
+          <div class="label">Created</div>
+        </div>
+        <div class="dev-stat">
+          <div class="value">2</div>
+          <div class="label">Merged</div>
+        </div>
+        <div class="dev-stat">
+          <div class="value">66%</div>
+          <div class="label">Acceptance</div>
+        </div>
+  </div>
+  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
+  <ul class="commit-list"><li>soglasieEndpoints</li><li>INS-3099</li><li>fix: KBM data inside KbmDataJson</li></ul>
+</div>
+
+<div class="dev-card">
+  <div class="dev-header">
+    <div class="dev-avatar">K</div>
+    <div>
       <div class="dev-name">Kapitan21o</div>
       <div class="dev-username">@Kapitan21o</div>
       <div class="dev-accounts">Kapitan21o</div>
@@ -426,58 +458,22 @@ tr:hover { background: #f8f9fa; }
   <ul class="commit-list"><li>Added 10 MFO partners</li></ul>
 </div>
 
-<div class="dev-card">
-  <div class="dev-header">
-    <div class="dev-avatar">L</div>
-    <div>
-      <div class="dev-name">Lev Seriy</div>
-      <div class="dev-username">@GrayLion</div>
-      <div class="dev-accounts">Lev Seriy</div>
-    </div>
-  </div>
-  <div class="dev-stats">
-    <div class="dev-stat">
-      <div class="value additions">+14</div>
-      <div class="label">Additions</div>
-    </div>
-    <div class="dev-stat">
-      <div class="value deletions">&minus;18</div>
-      <div class="label">Deletions</div>
-    </div>
-    
-        <div class="dev-stat">
-          <div class="value">4</div>
-          <div class="label">Created</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">2</div>
-          <div class="label">Merged</div>
-        </div>
-        <div class="dev-stat">
-          <div class="value">66%</div>
-          <div class="label">Acceptance</div>
-        </div>
-  </div>
-  <div style="margin-bottom:8px"><span class="repo-tag">Insapp</span></div>
-  <ul class="commit-list"><li>soglasieEndpoints</li><li>INS-3099</li></ul>
-</div>
-
 <h2>Insights</h2>
 <div class="insights-grid">
   <div class="insight-card">
     <div class="insight-title">Most Active Developer</div>
     <div class="insight-value">Sergey Klimov</div>
-    <div class="insight-detail">61 commits across 5 repos</div>
+    <div class="insight-detail">62 commits across 5 repos</div>
   </div>
   <div class="insight-card">
     <div class="insight-title">Most Lines Added</div>
     <div class="insight-value">Sergey Klimov</div>
-    <div class="insight-detail">+47,812 lines in Insapp, cloud-agents, html-report-service</div>
+    <div class="insight-detail">+47,815 lines in Insapp, cloud-agents, html-report-service</div>
   </div>
   <div class="insight-card">
     <div class="insight-title">Most MRs Created</div>
     <div class="insight-value">Alex Svistunov</div>
-    <div class="insight-detail">11 MRs, 10 merged</div>
+    <div class="insight-detail">11 MRs, 10 merged (90%)</div>
   </div>
   <div class="insight-card">
     <div class="insight-title">Multi-Repo Developer</div>
@@ -487,7 +483,7 @@ tr:hover { background: #f8f9fa; }
 </div>
 
 <div class="footer">
-  Generated on 3 April 2026 &middot; Merge commits excluded &middot; 122 real commits from 9 developers across 6 repositories
+  Generated on 3 April 2026 &middot; Merge commits excluded &middot; 143 real commits from 9 developers across 6 repositories
 </div>
 </body>
 </html>
